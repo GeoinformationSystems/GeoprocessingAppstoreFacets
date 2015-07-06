@@ -23,7 +23,7 @@
     <property name="solr.collection.url" value="http://localhost:8080/solr/collection1/"/>
     <property name="sql.database">
       <property name="driver" value="org.postgresql.Driver"/>
-      <property name="url" value="jdbc:postgresql://localhost:5432/geoportal"/>
+      <property name="url" value="jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=geoportal"/>
       <property name="username" value="geoportal"/>
       <property name="password" value="geoportal"/>
     </property>  

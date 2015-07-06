@@ -85,8 +85,7 @@ function(declare, lang, domConstruct, domClass,
           s = "1 result";
         } else if (bMore || bLess) {
           nPage =  Math.ceil((this.start+nDocs) / this.rows);
-          nPages = Math.ceil(nHits / this.rows);
-          //s = (this.start+1)+" to "+(this.start+nDocs)+" of "+nHits;
+          nPages = Math.ceil(nHits / this.rows); 
           s = nHits+" results. Page "+nPage+" of "+nPages;
         } else  {
           s = nDocs+" results";
@@ -107,12 +106,12 @@ function(declare, lang, domConstruct, domClass,
             style: {margin:"5px", padding: "2px", border:"1px solid #cccccc"}
           });
           
-          function getPlatformIcon(platform){
-        	  	var dir = "/../geoportal/catalog/images/mcp/icons/"
+          function getPlatformIcon(platform) { 
+        	  	var dir = "./g/solr/css/images/mcp/icons/";
         	  
-        	  	if (platform.length === 0) {
-        	  		return dir + "notDefined_small.png";
-        	  	}
+        	  	if (platform.length === 0) 
+        	  		return dir + "notDefined_small.png"; 
+        	  	
         		var stringSplit = platform.split("/");
         		var stringSplitLastIndex = stringSplit[stringSplit.length -1];
                 if (stringSplitLastIndex.toLowerCase().indexOf("java") > -1) {
@@ -133,7 +132,7 @@ function(declare, lang, domConstruct, domClass,
           }
           
           function getContainertype(containerType){
-        	var dir = "/../geoportal/catalog/images/mcp/icons/"
+        	 var dir = "./g/solr/css/images/mcp/icons/";
         	
       	  	if (containerType.length === 0) {
     	  		return dir + "notDefined_small.png";
@@ -159,8 +158,8 @@ function(declare, lang, domConstruct, domClass,
           }
 
           var elDownload = domConstruct.create("div",{
-              innerHTML: "<a href='/../geoportal/rest/manage/document?download=" + doc["sys.sync.foreign.id_s"] + "'>" + "<img src='/../geoportal/catalog/images/mr_harvest_inact.gif' height='14' width='14' title='Download'>" + "</a>" +
-              "<a href='/../geoportal/catalog/wps-js/run.html?uuid=" + doc["sys.sync.foreign.id_s"] + "'>" + "<img src='/../geoportal/catalog/images/ContentType_geographicService.png' height='14' width='14' title='Execute'>" + "</a>",
+              innerHTML: "<a href='/../" + appstore_path + "/rest/manage/document?download=" + doc["sys.sync.foreign.id_s"] + "'>" + "<img src='/../" + appstore_path + "/catalog/images/mr_harvest_inact.gif' height='14' width='14' title='Download'>" + "</a>" +
+              "<a href='/../" + appstore_path + "/catalog/wps-js/run.html?uuid=" + doc["sys.sync.foreign.id_s"] + "'>" + "<img src='/../" + appstore_path + "/catalog/images/ContentType_geographicService.png' height='14' width='14' title='Execute'>" + "</a>",
 				style: {marginLeft:"10px", padding: "0px", border:"0px solid #cccccc", display:"inline"}        	  
           },el);
           
@@ -189,7 +188,7 @@ function(declare, lang, domConstruct, domClass,
 	              				getLastPart(doc.platform[0]) +
 	              				"</div>" +
 	              				"<div style='border-top-right-radius:10px; padding:3px; font-size:10px; background-color:#a4aeb8; color:#ffffff; width: 200px; float:left; margin-top:4px; margin-bottom:4px;'>" +
-	              				"<img src='/../geoportal/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" +
+	              				"<img src='/../" + appstore_path + "/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" +
 	              				"Container type:<br />" +
 	              				"not defined" +
 	              				"</div><div style='clear:both;'></div>",
@@ -200,7 +199,7 @@ function(declare, lang, domConstruct, domClass,
 	          var elImages = domConstruct.create("div",{
 	              innerHTML: 	
 	            	  			"<div style='border-top-right-radius:10px; padding:3px; font-size:10px; background-color:#a4aeb8; color:#ffffff; width: 200px; float:left; margin-right:2px; margin-top:4px; margin-bottom:4px;'>" +
-	            	  			"<img src='/../geoportal/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" + 
+	            	  			"<img src='/../" + appstore_path + "/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" + 
 	            	  			"Platform:<br />" +
 	              				"not defined" +
 	              				"</div>" +
@@ -216,12 +215,12 @@ function(declare, lang, domConstruct, domClass,
 	          var elImages = domConstruct.create("div",{
 	              innerHTML: 	
 	            	  			"<div style='border-top-right-radius:10px; padding:3px; font-size:10px; background-color:#a4aeb8; color:#ffffff; width: 200px; float:left; margin-right:2px; margin-top:4px; margin-bottom:4px;'>" +
-	            	  			"<img src='/../geoportal/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" + 
+	            	  			"<img src='/../" + appstore_path + "/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" + 
 	            	  			"Platform:<br />" +
 	            	  			"not defined" +
 	              				"</div>" +
 	              				"<div style='border-top-right-radius:10px; padding:3px; font-size:10px; background-color:#a4aeb8; color:#ffffff; width: 200px; float:left; margin-top:4px; margin-bottom:4px;'>" +
-	              				"<img src='/../geoportal/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" +
+	              				"<img src='/../" + appstore_path + "/catalog/images/mcp/icons/notDefined_small.png' align='left' style='margin-right:5px'/>" +
 	              				"Container type:<br />" +
 	              				"not defined" +
 	              				"</div><div style='clear:both;'></div>",
@@ -244,24 +243,7 @@ function(declare, lang, domConstruct, domClass,
               innerHTML: "Metadata",
               style: {marginLeft: "10px"}
           },elLinks);
-          
-
-/*          
-          var sHref = this.solrClient.collectionUrl+"/select";
-          sHref += "?q=id:"+doc.id;
-          domConstruct.create("a",{
-            target: "_blank",
-            href: sHref+"&indent=on&wt=xml",
-            innerHTML: "solrxml",
-            style: {marginLeft: "10px"}
-          },elLinks);
-          domConstruct.create("a",{
-            target: "_blank",
-            href: sHref+"&indent=on&wt=json",
-            innerHTML: "solrjson",
-            style: {marginLeft: "10px"}
-          },elLinks);
-*/          
+     
           oItemsNode.appendChild(el);
         }
       }
@@ -288,7 +270,6 @@ function(declare, lang, domConstruct, domClass,
     }
     
   });
-  
-  
+ 
   return oThisClass;
 });
